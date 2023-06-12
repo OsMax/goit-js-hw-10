@@ -1,5 +1,5 @@
-MAIN_HOST = 'https://api.thecatapi.com/';
-API_KEY =
+const MAIN_HOST = 'https://api.thecatapi.com/';
+const API_KEY =
   'live_dSgQw3WFOFZLToXLlctPpUvvNetdFLauQ35rQlBcBydTaPLH2HNvD5WI6E4eQcZ2';
 
 function fetchBreeds() {
