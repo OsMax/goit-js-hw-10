@@ -62,11 +62,13 @@ function renderCatInfo(cat) {
 function errorPageLoad() {
   pLoad.classList.add('hidden');
   catSelect.classList.add('hidden');
+  catInfo.innerHTML = '';
   errorMessage();
 }
 
 function errorLoadCat() {
   pLoad.classList.add('hidden');
+  catInfo.innerHTML = '';
   errorMessage();
 }
 
