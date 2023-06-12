@@ -43,7 +43,7 @@ function chooseCat(e) {
     .then(cat => {
       renderCatInfo(cat);
     })
-    .catch(errorLoadCat);
+    .catch(e => errorLoadCat(e));
 }
 
 function renderCatInfo(cat) {
@@ -59,24 +59,28 @@ function renderCatInfo(cat) {
   catInfo.innerHTML = inf;
 }
 
-function errorPageLoad() {
+function errorPageLoad(e) {
   pLoad.classList.add('hidden');
   catSelect.classList.add('hidden');
   catInfo.innerHTML = '';
-  errorMessage();
+  errorMessage(e);
 }
 
-function errorLoadCat() {
+function errorLoadCat(e) {
   pLoad.classList.add('hidden');
   catInfo.innerHTML = '';
-  errorMessage();
+  errorMessage(e);
 }
 
-function errorMessage() {
+function errorMessage(e) {
   // Notiflix.Notify.failure(
   //   'Oops! Something went wrong! Try reloading the page!'
   // );
   Notiflix.Notify.init({ fontSize: '28px', width: '600px' });
+  if (!navigator.onLine) {
+    window.alert('NO INTERNET CONNECTION\nCheck your internet connection!');
+    return;
+  }
   Notiflix.Notify.failure(
     'Oops! Something went wrong! Try reloading the page!'
   );
